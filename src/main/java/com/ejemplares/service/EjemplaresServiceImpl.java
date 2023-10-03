@@ -1,5 +1,30 @@
 package com.ejemplares.service;
 
-public class EjemplaresServiceImpl {
-    
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.Arrays;
+import java.util.List;
+
+import com.ejemplares.model.Ejemplar;
+
+@Service
+public class EjemplaresServiceImpl implements EjemplaresService {
+	
+	
+	@Autowired
+	RestTemplate template;
+	
+	private String url = "http://localhost:8080/";
+	@Override
+	public List<Ejemplar> nuevoEjemplar(Ejemplar ejemplar) {
+		
+		template.postForLocation(url+"libro",ejemplar);	
+		
+    return Arrays.asList(template.getForObject(url+"libros", Ejemplar[].class));
+}
+	public List <Ejemplar> libros(){
+		return 
+	}
 }

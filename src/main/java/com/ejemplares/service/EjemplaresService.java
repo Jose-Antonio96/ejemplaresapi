@@ -6,4 +6,6 @@ import com.ejemplares.model.Ejemplar;
 
 public interface EjemplaresService {
 	List<Ejemplar> nuevoEjemplar(Ejemplar ejemplar);
+
+	List<Ejemplar> libros();
 }
